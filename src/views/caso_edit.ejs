@@ -1,0 +1,76 @@
+<% include partials/_header %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <form action=/update/<%=data.com_id %> method="post">
+
+            <div class="form-group">
+              <label for="text">Nombre de la comunicación</label>
+              <input type="text" name="name" value="<%= data.name %>" class ="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="date">Fecha inicial de la comunicación</label>
+              console.log(<%= data.start_date %>)
+              <input type="date" name="start_date" value="<%= data.start_date %>" class ="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="textarea">Resumen de la comunicación</label>
+              <textarea class="form-control" name= 'resume' id="exampleTextarea" rows="3"><%= data.resume%></textarea>
+            </div>
+
+
+            <div class="form-group">
+              <label for="select">País</label>
+              <select class="custom-select" name="pais">
+                <option selected=""><%= data.pais %></option>s
+                <option value="Guatemala">Guatemala</option>
+                <option value="El Salvador">El Salvador</option>
+                <option value="Honduras">Honduras</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="República Dominicana">República Dominicana</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="select">Tema de la comunicación</label>
+              <select class="custom-select" name="tema">
+                <option selected=""><%= data.tema %></option>
+                <option value="tema1">tema1</option>
+                <option value="tema2">tema2</option>
+                <option value="tema3">tema3</option>
+                <option value="tema4">tema4</option>
+                <option value="tema5">tema5</option>
+                <option value="tema6">tema6</option>
+                <option value="tema7">tema7</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="text">Peticionario</label>
+              <input type="text" name="peticionario" value="<%= data.peticionario %>" class ="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="select">Tipo de peticionario</label>
+              <select class="custom-select" name="tipo_peticionario">
+                <option selected=""><%= data.tipo_peticionario %></option>
+                <option value="tipo1">tipo1</option>
+                <option value="tipo2">tipo2</option>
+                <option value="tipo3">tipo3</option>
+              </select>
+            </div>
+            <!-- Aqui termina el formulario submit   -->
+            <button type="submit" class="btn btn-primary">Modificar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% include partials/_footer %>

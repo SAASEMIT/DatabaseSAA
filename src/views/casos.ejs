@@ -1,0 +1,111 @@
+<% include partials/_header %>
+
+<h1>Ingreso de comunicación</h1>
+<div class="container">
+  <div class="row mt-7">
+    <div class="col-md-7">
+      <table class=" table table-bordered table-hover">
+        <thead>
+          <th>Código</th>
+          <th>Nombre</th>
+          <th>Tema</th>
+          <!--<th>Resumen</th>-->
+          <th>País</th>
+          <!--<th>Tema</th>
+          <th>Peticionario</th>
+          <th>Tipo de Peticionario</th>-->
+          <th>Acción</th>
+        </thead>
+        <tbody>
+          <% if (data) { %>
+            <% for (var i = 0; i< data.length; i++) { %>
+              <tr>
+                <td><%=data[i].com_id %></td>
+                <td><%=data[i].name %></td>
+                <td><%=data[i].tema %></td>
+                <!--<td><%=data[i].resume %></td>-->
+                <td><%=data[i].pais %></td>
+                <!--<td><%=data[i].tema %></td>
+                <td><%=data[i].peticionario %></td>
+                <td><%=data[i].tipo_peticionario %></td>-->
+                <td>
+                  <a href="/delete/<%=data[i].com_id %>" class="btn btn-danger">Eliminar</a>
+                  <a href="/update/<%=data[i].com_id %>" class="btn btn-warning">Modificar</a>
+                </td>
+              </tr>
+            <% } %>
+          <%}%>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <form action="/add" method="post">
+            <div class="form-group">
+              <input type="text" name="com_id" placeholder="Código de comunicación" class ="form-control">
+            </div>
+
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Nombre de la comunicación" class ="form-control">
+            </div>
+
+            <div class="form-group">
+              <input type="date" name="start_date"  placeholder="Fecha de inicio de la comunicación" class ="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="textarea">Resumen de la comunicación</label>
+              <textarea class="form-control" name= 'resume' id="exampleTextarea" rows="3"></textarea>
+            </div>
+
+
+            <div class="form-group">
+              <select class="custom-select" name="pais">
+                <option selected="">Seleccione el país</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="El Salvador">El Salvador</option>
+                <option value="Honduras">Honduras</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="República Dominicana">República Dominicana</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <select class="custom-select" name="tema">
+                <option selected="">Seleccione el tema</option>
+                <option value="tema1">tema1</option>
+                <option value="tema2">tema2</option>
+                <option value="tema3">tema3</option>
+                <option value="tema4">tema4</option>
+                <option value="tema5">tema5</option>
+                <option value="tema6">tema6</option>
+                <option value="tema7">tema7</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <input type="text" name="peticionario" placeholder="Ingrese el nombre del peticionario" class ="form-control">
+            </div>
+
+            <div class="form-group">
+              <select class="custom-select" name="tipo_peticionario">
+                <option selected="">Seleccione el tipo de peticionario</option>
+                <option value="tipo1">tipo1</option>
+                <option value="tipo2">tipo2</option>
+                <option value="tipo3">tipo3</option>
+              </select>
+            </div>
+            <!-- Aqui termina el formulario submit   -->
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<% include partials/_footer %>
